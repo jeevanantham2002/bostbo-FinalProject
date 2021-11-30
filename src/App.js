@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from "./Components/Header";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import * as React from "react";
+import Items from "./Components/Items";
+import Midterm_Project from "./Components/Midterm_Project";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+    constructor() {
+        super();
+
+    }
+
+
+    render() {
+        return (
+            <div className="App">
+                <Header></Header>
+                <Items></Items>
+                {/*<Midterm_Project></Midterm_Project>*/}
+            </div>
+        );
+    }
+
 }
 
 export default App;

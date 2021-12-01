@@ -7,6 +7,8 @@ import Items from "./Components/Items";
 import Midterm_Project from "./Components/Midterm_Project";
 import axios from 'axios'
 import Grid from '@mui/material/Grid';
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
 
 
 class App extends React.Component {
@@ -69,6 +71,16 @@ class App extends React.Component {
     // }
 
 
+    purchaseCart = () => {
+        axios.get("http://localhost:5000/purchase/" + this.props.pid + "/" + this.props.cid + "/" + 1)
+            .then(response=>{
+                console.log(JSON.stringify(response.data))
+            }).catch(error=>{
+            console.log(error)
+        })
+    }
+
+
 
 
     render() {
@@ -100,6 +112,13 @@ class App extends React.Component {
                         >
 
                         </input>
+
+                        <div>
+
+                            <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', margin: "30px"}} onClick={this.AddToCart}> Purchase Cart </Button>
+
+                        </div>
+
                         <Grid container spacing={2} style={{ marginLeft : '90px'}}>
                             {this.state.items.filter((value)=>{
                                 if(this.state.searchTerm == ""){

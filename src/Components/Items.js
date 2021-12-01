@@ -18,7 +18,7 @@ class Items extends React.Component {
     //     }
     // }
 
-    buyItem = () =>{
+    AddToCart = () =>{
         axios.get("http://localhost:5000/purchase/" + this.props.pid + "/" + this.props.cid + "/" + 1)
             .then(response=>{
                 console.log(JSON.stringify(response.data))
@@ -54,8 +54,7 @@ class Items extends React.Component {
                         <img style={imgStyle} src={this.props.url}></img>
                         <h4>${this.props.price}</h4>
                         <h5>stock count: {this.props.stock}</h5>
-
-                        <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}} onClick={this.buyItem}> Buy </Button>
+                        <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', margin: '20px'}} onClick={this.AddToCart}> Add To Cart </Button>
 
                     </Paper>
 
